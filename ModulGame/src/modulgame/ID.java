@@ -7,9 +7,11 @@ package modulgame;
 
 /**
  *
- * @author Fauzan
+ * @author Aysha Alia
  */
 public enum ID {
     Player(),
-    Item();
+    Player2(),
+    Item(),
+    Musuh();
 }

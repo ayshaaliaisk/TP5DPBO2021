@@ -10,7 +10,7 @@ import java.util.LinkedList;
 
 /**
  *
- * @author Fauzan
+ * @author Aysha Alia
  */
 public class Handler {
     LinkedList<GameObject> object = new LinkedList<GameObject>();

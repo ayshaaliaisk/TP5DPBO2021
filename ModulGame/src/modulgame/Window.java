@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Fauzan
+ * @author Aysha Alia
  */
 public class Window extends Canvas {
     

@@ -10,7 +10,7 @@ import java.awt.Graphics;
 
 /**
  *
- * @author Fauzan
+ * @author Aysha Alia
  */
 public class Player extends GameObject{
     

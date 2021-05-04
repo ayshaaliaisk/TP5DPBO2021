@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_gamepbo`
+-- Database: `db_gametp5`
 --
 
 -- --------------------------------------------------------
@@ -30,17 +30,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `highscore` (
   `id` int(11) NOT NULL,
   `Username` varchar(200) NOT NULL,
-  `Score` int(11) NOT NULL
+  `Score` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `final_score` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `highscore`
 --
 
-INSERT INTO `highscore` (`id`, `Username`, `Score`) VALUES
-(1, 'MasProxy', 350),
-(2, 'Vii', 370),
-(3, 'YourMajesty', 320);
+INSERT INTO `highscore` (`id`, `Username`, `Score`, `time`, `final_score`) VALUES
+(1, 'MasProxy', 350, 20, 370),
+(2, 'Vii', 370, 30, 400),
+(3, 'YourMajesty', 320, 50, 370);
 
 --
 -- Indexes for dumped tables

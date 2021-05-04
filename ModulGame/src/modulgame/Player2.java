@@ -7,28 +7,30 @@ package modulgame;
 
 import java.awt.Color;
 import java.awt.Graphics;
-
 /**
  *
  * @author Aysha Alia
  */
-public class Items extends GameObject {
-    
-    public Items(int x, int y, ID id){
+public class Player2 extends GameObject{
+    public Player2(int x, int y, ID id){
         super(x, y, id);
-       
+        
         //speed = 1;
     }
 
     @Override
     public void tick() {
+        x += vel_x;
+        y += vel_y;
         
+        x = Game.clamp(x, 0, Game.WIDTH - 60);
+        y = Game.clamp(y, 0, Game.HEIGHT - 80);
+
     }
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.decode("#f5c542"));
-        g.fillRect(x, y, 20, 20);
+        g.setColor(Color.decode("#32CD32"));
+        g.fillRect(x, y, 50, 50);
     }
-    
 }

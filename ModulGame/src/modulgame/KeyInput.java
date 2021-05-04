@@ -11,7 +11,7 @@ import modulgame.Game.STATE;
 
 /**
  *
- * @author Fauzan
+ * @author Aysha Alia
  */
 public class KeyInput extends KeyAdapter{
     
@@ -43,6 +43,24 @@ public class KeyInput extends KeyAdapter{
                     }
 
                     if(key == KeyEvent.VK_D){
+                        tempObject.setVel_x(+5);
+                    }
+                }
+                
+                if(tempObject.getId() == ID.Player2){
+                    if(key == KeyEvent.VK_UP){
+                        tempObject.setVel_y(-5);
+                    }
+
+                    if(key == KeyEvent.VK_DOWN){
+                        tempObject.setVel_y(+5);
+                    }
+
+                    if(key == KeyEvent.VK_LEFT){
+                        tempObject.setVel_x(-5);
+                    }
+
+                    if(key == KeyEvent.VK_RIGHT){
                         tempObject.setVel_x(+5);
                     }
                 }
@@ -87,6 +105,24 @@ public class KeyInput extends KeyAdapter{
                 }
                 
                 if(key == KeyEvent.VK_D){
+                    tempObject.setVel_x(0);
+                }
+            }
+            
+            if(tempObject.getId() == ID.Player2){
+                if(key == KeyEvent.VK_UP){
+                    tempObject.setVel_y(0);
+                }
+                
+                if(key == KeyEvent.VK_DOWN){
+                    tempObject.setVel_y(0);
+                }
+                
+                if(key == KeyEvent.VK_LEFT){
+                    tempObject.setVel_x(0);
+                }
+                
+                if(key == KeyEvent.VK_RIGHT){
                     tempObject.setVel_x(0);
                 }
             }

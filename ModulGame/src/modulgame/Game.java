@@ -15,6 +15,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.sql.DriverManager;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -86,6 +87,11 @@ public class Game extends Canvas implements Runnable{
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+    
+    public void rand(KeyEvent e){
+         int key = e.getKeyCode();
+         
     }
 
     @Override
@@ -172,6 +178,9 @@ public class Game extends Canvas implements Runnable{
                             final_score = score + time;
                             break;
                         }
+                        if(checkCollisionEnemy(playerObject, player2Object, musuhObject)){
+                            gameState = STATE.GameOver;
+                        }
                     }
                 }
             }
@@ -186,7 +195,6 @@ public class Game extends Canvas implements Runnable{
         int sizePlayer = 50;
         int sizePlayer2 = 50;
         int sizeItem = 20;
-        int sizeMusuh = 30;
         
         int playerLeft = player.x;
         int playerRight = player.x + sizePlayer;
@@ -203,11 +211,6 @@ public class Game extends Canvas implements Runnable{
         int itemTop = item.y;
         int itemBottom = item.y + sizeItem;
         
-//        int musuhLeft = musuh.x;
-//        int musuhRight = musuh.x + sizeMusuh;
-//        int musuhTop = musuh.y;
-//        int musuhBottom = musuh.y + sizeMusuh;
-        
         if((playerRight > itemLeft ) &&
         (playerLeft < itemRight) &&
         (itemBottom > playerTop) &&
@@ -220,6 +223,39 @@ public class Game extends Canvas implements Runnable{
         (player2Left < itemRight) &&
         (itemBottom > player2Top) &&
         (itemTop < player2Bottom)
+        ){
+            result = true;
+        }
+        
+        return result;
+    }
+    
+        public static boolean checkCollisionEnemy(GameObject player, GameObject player2, GameObject musuh){
+        boolean result = false;
+        
+        int sizePlayer = 50;
+        int sizePlayer2 = 50;
+        int sizeMusuh = 30;
+        
+        int playerLeft = player.x;
+        int playerRight = player.x + sizePlayer;
+        int playerTop = player.y;
+        int playerBottom = player.y + sizePlayer;
+        
+        int player2Left = player.x;
+        int player2Right = player2.x + sizePlayer2;
+        int player2Top = player2.y;
+        int player2Bottom = player2.y + sizePlayer2;
+        
+        int musuhLeft = musuh.x;
+        int musuhRight = musuh.x + sizeMusuh;
+        int musuhTop = musuh.y;
+        int musuhBottom = musuh.y + sizeMusuh;
+        
+        if((player2Right > musuhLeft ) &&
+        (player2Left < musuhRight) &&
+        (musuhBottom > player2Top) &&
+        (musuhTop < player2Bottom)
         ){
             result = true;
         }

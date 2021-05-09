@@ -5,6 +5,9 @@
  */
 package modulgame;
 
+import javax.swing.*;
+import java.awt.event.*;
+import java.io.*;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Font;
@@ -52,13 +55,14 @@ public class Game extends Canvas implements Runnable{
     
     public STATE gameState = STATE.Game;
     
-    public Game(String uname){
+    public Game(String name){
         window = new Window(WIDTH, HEIGHT, "Tugas praktikum 5", this);
         
         handler = new Handler();
         
         this.addKeyListener(new KeyInput(handler, this));
         
+        playSound("/bensound-funkyelement.wav");
         if(gameState == STATE.Game){
             handler.addObject(new Items(100,150, ID.Item));
             handler.addObject(new Items(200,350, ID.Item));
@@ -66,7 +70,7 @@ public class Game extends Canvas implements Runnable{
             handler.addObject(new Player2(200,250, ID.Player2));
             handler.addObject(new Musuh(300,250, ID.Musuh));
         }
-        username = uname;
+        username = name;
     }
 
     public synchronized void start(){
@@ -173,6 +177,8 @@ public class Game extends Canvas implements Runnable{
             }
         }
     }
+   
+
     
     public static boolean checkCollision(GameObject player, GameObject item, GameObject player2, GameObject musuh){
         boolean result = false;

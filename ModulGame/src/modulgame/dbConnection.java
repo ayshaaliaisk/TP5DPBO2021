@@ -11,7 +11,7 @@ import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 /**
  *
- * @author Aysha Alia 
+ * @author Fauzan
  */
 public class dbConnection {
     public static Connection con;
@@ -19,7 +19,7 @@ public class dbConnection {
     
     public void connect(){//untuk membuka koneksi ke database
         try {
-            String url ="jdbc:mysql://localhost/db_tp5";
+            String url ="jdbc:mysql://localhost/db_gameTP5";
             String user="root";
             String pass="";
             Class.forName("com.mysql.jdbc.Driver");
@@ -35,7 +35,7 @@ public class dbConnection {
         
         DefaultTableModel dataTabel = null;
         try{
-            Object[] column = {"No", "Username", "Score", "Time", "Final Score"};
+            Object[] column = {"No", "Username", "Score"};
             connect();
             dataTabel = new DefaultTableModel(null, column);
             String sql = "Select * from highscore ORDER BY score DESC";
@@ -43,12 +43,10 @@ public class dbConnection {
             
             int no = 1;
             while(res.next()){
-                Object[] hasil = new Object[5];
+                Object[] hasil = new Object[3];
                 hasil[0] = no;
                 hasil[1] = res.getString("Username");
                 hasil[2] = res.getString("Score");
-                hasil[3] = res.getString("Time");
-                hasil[4] = res.getString("Final Score");
                 no++;
                 dataTabel.addRow(hasil);
             }
